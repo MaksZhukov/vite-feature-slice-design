@@ -1,4 +1,4 @@
-import Card from 'featues/tasks/ui/Card';
+import Card from 'features/tasks/ui/Card';
 
 const TasksWidget = () => {
 	return (

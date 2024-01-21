@@ -1,9 +1,9 @@
-import TasksWidget from 'widgets/tasks/ui/TasksWidget';
+import UsersSelect from 'entities/user/ui/UsersSelect';
 
 const Tasks = () => {
 	return (
 		<div>
-			<TasksWidget></TasksWidget>
+			<UsersSelect></UsersSelect>
 		</div>
 	);
 };
