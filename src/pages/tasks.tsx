@@ -1,11 +1,11 @@
-import UsersSelect from 'entities/user/ui/UsersSelect';
+import { Tasks } from 'widgets/tasks';
 
-const Tasks = () => {
+const TasksPage = () => {
 	return (
 		<div>
-			<UsersSelect></UsersSelect>
+			<Tasks></Tasks>
 		</div>
 	);
 };
 
-export default Tasks;
+export default TasksPage;
