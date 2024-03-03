@@ -2,12 +2,15 @@ import { useSelector } from 'react-redux';
 import { CreateTask, DeleteTask, MarkTaskIsDone } from 'features/tasks';
 import { selectTasks } from 'entities/tasks';
 import { TaskItem } from 'entities/tasks';
+import { useTranslation } from 'shared/lib/i18n';
+import styles from './Tasks.module.scss';
 
 export const Tasks = () => {
+	const { t } = useTranslation();
 	const tasks = useSelector(selectTasks);
 	return (
-		<div>
-			TASKS
+		<div className={styles.wrapper}>
+			{t('Tasks')}
 			<CreateTask></CreateTask>
 			{tasks.map((item) => (
 				<TaskItem

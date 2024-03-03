@@ -1,9 +1,16 @@
 import { withProviders } from 'app/providers';
 import { Routing } from 'pages';
-import './App.scss';
+import { Localization } from 'widgets/localization';
+import { initI18n } from 'shared/lib/i18n';
 
+initI18n();
 const App = () => {
-	return <Routing></Routing>;
+	return (
+		<>
+			<Localization></Localization>
+			<Routing></Routing>
+		</>
+	);
 };
 
 const AppWithProviders = withProviders(App);
