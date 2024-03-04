@@ -1,11 +1,13 @@
 import { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTask, selectTasksCount } from 'entities/tasks';
+import { useTranslation } from 'shared/lib/i18n';
 import { Button, Checkbox, Input } from 'shared/ui';
 
 export const CreateTask: FC = () => {
 	const [name, setName] = useState<string>('');
 	const [done, setDone] = useState<boolean>(false);
+	const { t } = useTranslation();
 	const tasksCount = useSelector(selectTasksCount);
 	const dispatch = useDispatch<StoreDispatch>();
 	const handleChangeInput: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -22,7 +24,7 @@ export const CreateTask: FC = () => {
 		<div>
 			<Input value={name} onChange={handleChangeInput}></Input>
 			<Checkbox checked={done} onChange={handleChangeCheckbox}></Checkbox>
-			<Button onClick={handleClickCreate}>Create</Button>
+			<Button onClick={handleClickCreate}>{t('Create')}</Button>
 		</div>
 	);
 };

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { CreateTask, DeleteTask, MarkTaskIsDone } from 'features/tasks';
+import { CreateTask, DeleteTask, EditTask, MarkTaskIsDone } from 'features/tasks';
 import { selectTasks } from 'entities/tasks';
 import { TaskItem } from 'entities/tasks';
 import { useTranslation } from 'shared/lib/i18n';
@@ -19,6 +19,7 @@ export const Tasks = () => {
 					actions={
 						<>
 							<MarkTaskIsDone id={item.id}></MarkTaskIsDone>
+							<EditTask id={item.id}></EditTask>
 							<DeleteTask id={item.id}></DeleteTask>
 						</>
 					}></TaskItem>
