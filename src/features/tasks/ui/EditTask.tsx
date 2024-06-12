@@ -1,9 +1,9 @@
 import { ChangeEventHandler, FC, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTaskById, updateTask } from 'entities/tasks';
 import { useTranslation } from 'shared/lib/i18n';
 import { Button, Input } from 'shared/ui';
 import styles from './EditTask.module.scss';
+import { useRecoilValue } from 'recoil';
+import { selectTaskById, useUpdateTask } from 'entities/tasks/model/model';
 
 interface Props {
 	id: number;
@@ -13,8 +13,8 @@ export const EditTask: FC<Props> = ({ id }) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const [value, setValue] = useState<string>('');
 	const { t } = useTranslation();
-	const dispatch = useDispatch<StoreDispatch>();
-	const task = useSelector(selectTaskById(id));
+	const updateTask = useUpdateTask();
+	const task = useRecoilValue(selectTaskById(id));
 
 	const handleClickEdit = () => {
 		setIsEditing(true);
@@ -25,7 +25,7 @@ export const EditTask: FC<Props> = ({ id }) => {
 
 	const handleApply = () => {
 		if (task) {
-			dispatch(updateTask({ done: task.done, id, name: value }));
+			updateTask({ done: task.done, id, name: value });
 			setIsEditing(false);
 		}
 	};

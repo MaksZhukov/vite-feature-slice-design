@@ -1,19 +1,20 @@
 import { ChangeEvent, FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTaskById, updateTask } from 'entities/tasks';
+import { selectTaskById } from 'entities/tasks';
 import { Checkbox } from 'shared/ui';
+import { useRecoilValue } from 'recoil';
+import { useUpdateTask } from 'entities/tasks/model/model';
 
 interface Props {
 	id: number;
 }
 
 export const MarkTaskIsDone: FC<Props> = ({ id }) => {
-	const task = useSelector(selectTaskById(id));
-	const dispatch = useDispatch<StoreDispatch>();
+	const task = useRecoilValue(selectTaskById(id));
+	const updateTask = useUpdateTask();
 
 	const handleChangeCheckbox: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void = (_, checked) => {
 		if (task) {
-			dispatch(updateTask({ id, done: checked, name: task.name }));
+			updateTask({ id, done: checked, name: task.name });
 		}
 	};
 

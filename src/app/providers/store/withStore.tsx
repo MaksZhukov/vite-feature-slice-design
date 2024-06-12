@@ -1,4 +1,3 @@
-import { Provider } from 'react-redux';
-import { store } from './store';
+import { RecoilRoot } from 'recoil';
 
-export const withStore = (component: () => React.ReactNode) => () => <Provider store={store}>{component()}</Provider>;
+export const withStore = (component: () => React.ReactNode) => () => <RecoilRoot>{component()}</RecoilRoot>;

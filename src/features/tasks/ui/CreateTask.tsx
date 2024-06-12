@@ -1,15 +1,13 @@
-import { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createTask, selectTasksCount } from 'entities/tasks';
+import { ChangeEvent, ChangeEventHandler, FC, useId, useState } from 'react';
 import { useTranslation } from 'shared/lib/i18n';
 import { Button, Checkbox, Input } from 'shared/ui';
+import { useCreateTask } from 'entities/tasks/model/model';
 
 export const CreateTask: FC = () => {
 	const [name, setName] = useState<string>('');
 	const [done, setDone] = useState<boolean>(false);
 	const { t } = useTranslation();
-	const tasksCount = useSelector(selectTasksCount);
-	const dispatch = useDispatch<StoreDispatch>();
+	const createTask = useCreateTask();
 	const handleChangeInput: ChangeEventHandler<HTMLInputElement> = (event) => {
 		setName(event.target.value);
 	};
@@ -18,7 +16,7 @@ export const CreateTask: FC = () => {
 	};
 
 	const handleClickCreate = () => {
-		dispatch(createTask({ id: tasksCount, name, done }));
+		createTask({ id: new Date().getTime(), name, done });
 	};
 	return (
 		<div>
