@@ -5,5 +5,7 @@ export const enTranslations = {
 	Create: 'Создать',
 	Delete: 'Delete',
 	Edit: 'Edit',
-	Apply: 'Apply'
+	Apply: 'Apply',
+    Light: 'Light',
+    Dark: 'Dark'
 };

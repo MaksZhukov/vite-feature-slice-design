@@ -1,17 +1,16 @@
-import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { Languages, useTranslation } from 'shared/lib/i18n';
 import { MenuItem, Select } from 'shared/ui';
 
 export const ChangeLocalization: FC = () => {
 	const { i18n } = useTranslation();
-	const handleChange: (event: SelectChangeEvent<unknown>, child: ReactNode) => void = (event) => {
-		i18n.changeLanguage(event.target.value as Languages);
+	const handleChange = (language: Languages) => () => {
+		i18n.changeLanguage(language);
 	};
 	return (
-		<Select onChange={handleChange} value={i18n.language} variant='outlined' size='small'>
+		<Select value={i18n.language} variant='outlined' size='small'>
 			{Object.values(Languages).map((language) => (
-				<MenuItem key={language} value={language}>
+				<MenuItem onClick={handleChange(language)} key={language} value={language}>
 					{language}
 				</MenuItem>
 			))}

@@ -5,5 +5,7 @@ export const ruTranslations = {
 	Create: 'Создать',
 	Delete: 'Удалить',
 	Edit: 'Изменить',
-	Apply: 'Применить'
+	Apply: 'Применить',
+	Light: 'Светлая',
+	Dark: 'Темная'
 };
