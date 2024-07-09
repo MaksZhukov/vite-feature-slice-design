@@ -47,6 +47,9 @@ dependencies:
   vite-tsconfig-paths:
     specifier: ^4.3.2
     version: 4.3.2(typescript@5.5.3)(vite@5.3.3)
+  web-vitals:
+    specifier: ^4.2.1
+    version: 4.2.1
 
 devDependencies:
   '@feature-sliced/eslint-config':
@@ -4036,6 +4039,10 @@ packages:
   /void-elements@3.1.0:
     resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /web-vitals@4.2.1:
+    resolution: {integrity: sha512-U6bAxeudnhDqcXNl50JC4hLlqox9DZnngxfISZm3DMZnonW35xtJOVUc091L+DOY+6hVZVpKXoiCP0RiT6339Q==}
     dev: false
 
   /webidl-conversions@3.0.1:
